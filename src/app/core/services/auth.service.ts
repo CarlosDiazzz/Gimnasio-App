@@ -12,6 +12,10 @@ export class AuthService {
     return this.http.post(this.apiUrl, { username, password });
   }
 
+  register(data: any) {
+    return this.http.post<any>('http://localhost:8080/auth/register', data);
+  }
+
   setToken(token: string): void {
     localStorage.setItem('token', token);
   }
@@ -28,4 +32,3 @@ export class AuthService {
     return !!this.getToken();
   }
 }
-
